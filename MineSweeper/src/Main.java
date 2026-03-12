@@ -12,5 +12,6 @@ public class Main {
         System.out.println("\u277B"); //❻
         System.out.println("\u277C"); //❼
         System.out.println("\u277D"); //❽
+        System.out.println("\u25CF"); //●
     }
 }
