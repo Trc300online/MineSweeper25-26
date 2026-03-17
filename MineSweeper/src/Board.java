@@ -26,8 +26,8 @@ public class Board {
             while (count <= bombs) {
                 int i = new Random().nextInt(boardHeight);
                 int j = new Random().nextInt(boardWidth);
-                if (!board[i][j].getIsBomb()) {
-                    board[i][j].setBomb(true);
+                if (!board[i][j].getBomb()) {
+                    board[i][j].setBomb();
                 }
             }
         }

@@ -13,27 +13,23 @@ public class Tile {
         this.value = value;
     }
 
-    public boolean getIsBomb() {
+    public boolean getBomb() {
         return isBomb;
     }
 
-    public void setBomb(boolean isBomb) {
-        this.isBomb = isBomb;
+    public void setBomb() {
+        this.isBomb = true;
     }
 
     public boolean getIsReveald() {
         return isRevealed;
     }
 
-    public void setRevealed(boolean isRevealed) {
-        this.isRevealed = isRevealed;
+    public void setRevealed() {
+        this.isRevealed = true;
     }
 
-    public boolean getIsFlagged() {
-        return isFlagged;
-    }
-
-    public void setFlagged(boolean isFlagged) {
-        this.isFlagged = isFlagged;
+    public void toggleFlag() {
+        isFlagged = !isFlagged;
     }
 }
