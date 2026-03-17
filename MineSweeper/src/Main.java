@@ -13,5 +13,17 @@ public class Main {
         System.out.println("\u277C"); //❼
         System.out.println("\u277D"); //❽
         System.out.println("\u25CF"); //●
+
+
+        String[][] ex = {{"NW1 ", "N2 ", "NE3"},
+                        {" W ", "C ", "E"},
+                        {"SW ", "S ", "SE"}};
+
+        for (int i = 0; i < ex.length; i++) {
+            System.out.println();
+            for (int j = 0; j < ex[0].length; j++) {
+                System.out.print(ex[i][j]);
+            }
+        }
     }
 }

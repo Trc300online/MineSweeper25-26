@@ -18,7 +18,7 @@ public class Board {
     }
 
     public void placeBombs() {
-        int bombs = Screen.askBombs();
+        int bombs = 0; // = Screen.askBombs();
         if (bombs < 1 || bombs > ((boardWidth * boardWidth)/3)) {
             //set error
         } else {
@@ -28,12 +28,19 @@ public class Board {
                 int j = new Random().nextInt(boardWidth);
                 if (!board[i][j].getBomb()) {
                     board[i][j].setBomb();
+                    count++;
                 }
             }
         }
     }
 
     public void setTilesValues() {
-
+        for (int i = 0; i < boardHeight - 1; i++) {
+            for (int j = 0; j < boardWidth - 1; j++) {
+                if (!board[i][j].getBomb()) {
+                    board[i][j].countBombsAround(i, j, board);
+                }
+            }
+        }
     }
 }
