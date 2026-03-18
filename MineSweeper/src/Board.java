@@ -3,8 +3,8 @@ import java.util.Random;
 
 public class Board {
 
-    private int boardHeight;
-    private int boardWidth;
+    private final int boardHeight = Inputs.getHeight();
+    private final int boardWidth = Inputs.getWidth();
     private Tile[][] board;
 
     public void generateBoard() {
