@@ -19,7 +19,7 @@ public class Board {
 
     public void placeBombs() {
         int bombs = 0; // = Screen.askBombs();
-        if (bombs < 1 || bombs > ((boardWidth * boardWidth)/3)) {
+        if (bombs < 1 || bombs > ((boardHeight * boardWidth)/3)) {
             //set error
         } else {
             int count = 0;
