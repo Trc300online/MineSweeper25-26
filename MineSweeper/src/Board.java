@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Board {
@@ -18,9 +17,10 @@ public class Board {
     }
 
     public void placeBombs() {
-        int bombs = 0; // = Screen.askBombs();
+        int bombs = Inputs.getBombInput();
         if (bombs < 1 || bombs > ((boardHeight * boardWidth)/3)) {
-            //set error
+            // TODO: set error
+            placeBombs();
         } else {
             int count = 0;
             while (count <= bombs) {

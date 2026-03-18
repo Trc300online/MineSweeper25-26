@@ -21,4 +21,13 @@ public class Inputs {
 
         return width;
     }
+
+    public static int getBombInput() {
+        int bombs;
+
+        Scanner input = new Scanner(System.in);
+        Screen.askBombs();
+        bombs = input.nextInt();
+        return bombs;
+    }
 }
