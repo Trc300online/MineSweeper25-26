@@ -52,4 +52,18 @@ public class Board {
     public Tile[][] getBoard() {
         return board;
     }
+
+    public void flagTile(int[] position) {
+        int x = position[0];
+        int y = position[1];
+
+        board[x][y].toggleFlag();
+    }
+
+    public void revealTile(int[] position) {
+        int x = position[0];
+        int y = position[1];
+
+        board[x][y].setRevealed();
+    }
 }

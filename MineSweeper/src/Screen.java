@@ -29,4 +29,17 @@ public class Screen {
             }
         }
     }
+
+    public static void quitMsg() {
+        System.out.println("Quitting game...");
+        System.out.println("Bye!");
+    }
+
+    public static void askAction() {
+        System.out.println("| [R]eveal | [F]lag | [Q]uit |");
+    }
+
+    public static void askCoords() {
+        System.out.println("Where?");
+    }
 }

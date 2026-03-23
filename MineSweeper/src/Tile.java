@@ -2,7 +2,7 @@ public class Tile {
 
     private int value = 0;
     private boolean isBomb = false;
-    private boolean isRevealed = true;
+    private boolean isRevealed = false;
     private boolean isFlagged = false;
 
     public int getValue() {
