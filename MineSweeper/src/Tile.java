@@ -2,7 +2,7 @@ public class Tile {
 
     private int value = 0;
     private boolean isBomb = false;
-    private boolean isRevealed = false;
+    private boolean isRevealed = true;
     private boolean isFlagged = false;
 
     public int getValue() {
@@ -31,6 +31,10 @@ public class Tile {
 
     public void toggleFlag() {
         isFlagged = !isFlagged;
+    }
+
+    public boolean getFlagged() {
+        return isFlagged;
     }
 
     public void countBombsAround(int i, int j, Tile[][] board) {
@@ -69,7 +73,7 @@ public class Tile {
     }
 
     public boolean checkN(int i, int j, Tile[][] board) {
-        if (i-1 > 0) {
+        if (i-1 >= 0) {
             if (board[i-1][j].getBomb()) {
                 return true;
             }
@@ -99,7 +103,7 @@ public class Tile {
     }
 
     public boolean checkW(int i, int j, Tile[][] board) {
-        if (j-1 > 0) {
+        if (j-1 >= 0) {
             if (board[i][j-1].getBomb()) {
                 return true;
             }
@@ -109,7 +113,7 @@ public class Tile {
     }
 
     public boolean checkNE(int i, int j, Tile[][] board) {
-        if (i-1 > 0 && j+1 < board[0].length) {
+        if (i-1 >= 0 && j+1 < board[0].length) {
             if (board[i-1][j+1].getBomb()) {
                 return true;
             }
@@ -119,7 +123,7 @@ public class Tile {
     }
 
     public boolean checkNW(int i, int j, Tile[][] board) {
-        if (i-1 > 0 && j-1 > 0) {
+        if (i-1 >= 0 && j-1 >= 0) {
             if (board[i-1][j-1].getBomb()) {
                 return true;
             }
@@ -139,7 +143,7 @@ public class Tile {
     }
 
     public boolean checkSW(int i, int j, Tile[][] board) {
-        if (i+1 < board.length && j-1 > 0) {
+        if (i+1 < board.length && j-1 >= 0) {
             if (board[i+1][j-1].getBomb()) {
                 return true;
             }

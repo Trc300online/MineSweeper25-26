@@ -11,5 +11,8 @@ public class Main {
                 System.out.print(i + "" + j + " ");
             }
         }
+
+        Game game = new Game();
+        game.playGame();
     }
 }

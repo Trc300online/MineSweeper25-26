@@ -4,7 +4,7 @@ public class Board {
 
     private final int boardHeight = Inputs.getHeight();
     private final int boardWidth = Inputs.getWidth();
-    private Tile[][] board;
+    private static Tile[][] board;
 
     public void generateBoard() {
         populateBoard();
@@ -14,6 +14,11 @@ public class Board {
 
     public void populateBoard() {
         board = new Tile[boardHeight][boardWidth];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                board[i][j] = new Tile();
+            }
+        }
     }
 
     public void placeBombs() {
@@ -23,7 +28,7 @@ public class Board {
             placeBombs();
         } else {
             int count = 0;
-            while (count <= bombs) {
+            while (count < bombs) {
                 int i = new Random().nextInt(boardHeight);
                 int j = new Random().nextInt(boardWidth);
                 if (!board[i][j].getBomb()) {
@@ -35,12 +40,16 @@ public class Board {
     }
 
     public void setTilesValues() {
-        for (int i = 0; i < boardHeight - 1; i++) {
-            for (int j = 0; j < boardWidth - 1; j++) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
                 if (!board[i][j].getBomb()) {
                     board[i][j].countBombsAround(i, j, board);
                 }
             }
         }
+    }
+
+    public Tile[][] getBoard() {
+        return board;
     }
 }
