@@ -24,7 +24,7 @@ public class Screen {
                 else if (board[i][j].getIsReveald()) {
                     System.out.print(board[i][j].getValue());
                 } else {
-                    System.out.print(" ");
+                    System.out.print("\u25A1");
                 }
             }
         }
@@ -36,10 +36,27 @@ public class Screen {
     }
 
     public static void askAction() {
+        System.out.println();
         System.out.println("| [R]eveal | [F]lag | [Q]uit |");
     }
 
     public static void askCoords() {
         System.out.println("Where?");
+    }
+
+    public static void gameOverMsg() {
+        System.out.println("You Lose");
+    }
+
+    public static void errorHandler(int code) {
+        switch (code) {
+            case '0':
+                System.out.println("The number of bombs has to be between 1 and 1/3 of total tiles");
+            case '1':
+                System.out.println("Unknown key pressed, try again");
+            default:
+                System.out.println("unexpected error, ending processing....");
+                System.exit(0);
+        }
     }
 }

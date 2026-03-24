@@ -49,8 +49,8 @@ public class Inputs {
         Scanner x = new Scanner(System.in);
         Scanner y = new Scanner(System.in);
         Screen.askCoords();
-        coords[0] = x.nextInt();
-        coords[1] = y.nextInt();
+        coords[0] = x.nextInt() - 1;
+        coords[1] = y.nextInt() - 1;
 
         return coords;
     }
