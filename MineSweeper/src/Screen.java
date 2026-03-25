@@ -46,7 +46,7 @@ public class Screen {
 
     public static void gameOverMsg() {
         //System.out.println("You Lose");
-        System.out.println("~~~\\  /~|\u203E\u203E|~|  |~~~|   ~|  |~\u250c\u2500\u2500\u2500~\u250c\u2500\u2500\u2500");
+        System.out.println("~~~\\  /~|\u203E\u203E|~|  |~~~|   ~|\u203E\u203E|~\u250c\u2500\u2500\u2500~\u250c\u2500\u2500\u2500");
         System.out.println("~~~ \\/ ~|  |~|  |~~~|   ~|  |~\u2514\u2500\u2500\u2510~\u251C\u2500\u2500\u2500");
         System.out.println("~~~ \u2595  ~|  |~|  |~~~|   ~|  |~   |~|");
         System.out.println("~~~ \u2595  ~|__|~|__|~~~\u230A___~|__|~-\u2500\u2500\u2518~\u2514\u2500\u2500\u2500");
