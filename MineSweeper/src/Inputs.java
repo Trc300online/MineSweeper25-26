@@ -1,5 +1,3 @@
-import javax.script.ScriptEngine;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Inputs {
@@ -43,15 +41,16 @@ public class Inputs {
         return action;
     }
 
-    public static int[] getPosition() {
+    public static int[] getPosition(int height, int width) {
         int[] coords = new int[2];
+        do {
+            Scanner x = new Scanner(System.in);
+            Scanner y = new Scanner(System.in);
+            Screen.askCoords();
+            coords[0] = x.nextInt() - 1;
+            coords[1] = y.nextInt() - 1;
 
-        Scanner x = new Scanner(System.in);
-        Scanner y = new Scanner(System.in);
-        Screen.askCoords();
-        coords[0] = x.nextInt() - 1;
-        coords[1] = y.nextInt() - 1;
-
+        } while (coords[0] < 0 || coords[0] >= height || coords[1] < 0 || coords[1] >= width);
         return coords;
     }
 }

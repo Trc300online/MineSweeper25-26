@@ -5,7 +5,7 @@ public class Board {
     private final int boardHeight = Inputs.getHeight();
     private final int boardWidth = Inputs.getWidth();
     private static Tile[][] board;
-    int bombs = Inputs.getBombInput();
+    int bombs;
     int totalTiles = (boardHeight * boardWidth);
     int revelaed = 0;
     private int[][] veinadesRelatives = {{-1,-1},{-1,0},{-1,+1},{0,-1},{0,+1},{1,-1},{1,0},{1,1}};
@@ -14,6 +14,14 @@ public class Board {
         populateBoard();
         placeBombs();
         setTilesValues();
+    }
+
+    public int getBoardHeight() {
+        return boardHeight;
+    }
+
+    public int getBoardWidth() {
+        return boardWidth;
     }
 
     public void populateBoard() {
@@ -26,6 +34,7 @@ public class Board {
     }
 
     public void placeBombs() {
+        bombs = Inputs.getBombInput();
         if (bombs < 1 || bombs > ((boardHeight * boardWidth)/3)) {
             Screen.errorHandler(0);
             placeBombs();
@@ -46,22 +55,17 @@ public class Board {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 if (!board[i][j].getBomb()) {
-                    board[i][j].countBombsAround(i, j, board);
-                }
-            }
-        }
-
-        int count = 0;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (!board[i][j].getBomb()) {
+                    int count = 0;
                     for (int a = 0; a < veinadesRelatives.length; a++) {
                         int x = veinadesRelatives[a][0];
                         int y = veinadesRelatives[a][1];
                         if (esticDinsTauler((i+x), (j+y))) {
-
+                            if (board[i+x][j+y].getBomb()) {
+                                count = count + 1;
+                            }
                         }
                     }
+                    board[i][j].setValue(count);
                 }
             }
         }
@@ -78,7 +82,7 @@ public class Board {
         board[x][y].toggleFlag();
     }
 
-    private boolean esticDinsTauler( int fila , int col ){
+    public boolean esticDinsTauler( int fila , int col ){
 
         return ( ( fila >= 0 ) && ( fila < board.length ) && ( col >= 0 ) && ( col < board[0].length) );
     }
@@ -103,6 +107,7 @@ public class Board {
                             revealTile(newPosition);
                         } else {
                             board[x+a][y+b].setRevealed();
+                            revelaed++;
                         }
                     }
                 }
@@ -124,6 +129,12 @@ public class Board {
     }
 
     public boolean checkWin() {
-        return (revelaed + bombs == totalTiles) ;
+        if (revelaed + bombs == totalTiles) {
+            Screen.winMsg();
+            Screen.printBoard(board);
+
+            return true;
+        }
+        return false;
     }
 }

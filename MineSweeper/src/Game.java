@@ -1,14 +1,20 @@
 public class Game {
 
-    Board board = new Board();
+    static Board board = new Board();
 
     public void playGame() {
         board.generateBoard();
         boolean gameContinue = true;
         while (gameContinue) {
-            gameContinue = !board.checkWin();
             Screen.printBoard(board.getBoard());
             gameContinue = playerTurn();
+            if (!gameContinue) {
+                break;
+            }
+            gameContinue = !board.checkWin();
+            if (!gameContinue) {
+                break;
+            }
         }
 
     }
@@ -23,15 +29,16 @@ public class Game {
                 System.exit(0);
                 break;
             case 'F':
-                position = Inputs.getPosition();
+                position = Inputs.getPosition(board.getBoardHeight(), board.getBoardWidth());
                 board.flagTile(position);
                 return true;
             case 'R':
-                position = Inputs.getPosition();
+                position = Inputs.getPosition(board.getBoardHeight(), board.getBoardWidth());
                 board.revealTile(position);
                 return board.saveSpot(position);
             default:
                 Screen.errorHandler(1);
+                playerTurn();
         }
         return true;
     }

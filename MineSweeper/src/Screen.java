@@ -45,18 +45,32 @@ public class Screen {
     }
 
     public static void gameOverMsg() {
-        System.out.println("You Lose");
+        //System.out.println("You Lose");
+        System.out.println("~~~\\  /~|\u203E\u203E|~|  |~~~|   ~|  |~\u250c\u2500\u2500\u2500~\u250c\u2500\u2500\u2500");
+        System.out.println("~~~ \\/ ~|  |~|  |~~~|   ~|  |~\u2514\u2500\u2500\u2510~\u251C\u2500\u2500\u2500");
+        System.out.println("~~~ \u2595  ~|  |~|  |~~~|   ~|  |~   |~|");
+        System.out.println("~~~ \u2595  ~|__|~|__|~~~\u230A___~|__|~-\u2500\u2500\u2518~\u2514\u2500\u2500\u2500");
     }
 
     public static void errorHandler(int code) {
         switch (code) {
-            case '0':
+            case 0:
                 System.out.println("The number of bombs has to be between 1 and 1/3 of total tiles");
-            case '1':
+                break;
+            case 1:
                 System.out.println("Unknown key pressed, try again");
+                break;
             default:
                 System.out.println("unexpected error, ending processing....");
                 System.exit(0);
         }
+    }
+
+    public static void winMsg() {
+        //System.out.println("You Win!");
+        System.out.println("~~~\\  /~|\u203E\u203E|~|  |~~~\\           /~\u203E\u203E\u203ET\u203E\u203E\u203E~|\\   |~~~");
+        System.out.println("~~~ \\/ ~|  |~|  |~~~ \\    X    / ~   |   ~| \\  |~~~");
+        System.out.println("~~~ \u2595  ~|  |~|  |~~~  \\  / \\  /  ~   |   ~|  \\ |~~~");
+        System.out.println("~~~ \u2595  ~|__|~|__|~~~   \\/   \\/   ~___\u22A5___~|   \\|~~~");
     }
 }
